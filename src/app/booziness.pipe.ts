@@ -7,12 +7,20 @@ import { Tap } from './models/task.model';
 })
 
 export class BoozinessPipe implements PipeTransform {
-  transform(input: Tap[]) {
+  transform(input: Tap[], desiredBooziness) {
     let output: Tap[] = [];
     for (let i = 0; i < input.length; i++) {
-        if (input[i] >= 10) {
-
-        } else if (input[i] >= )
+      if (desiredBooziness === 'high' && input[i] >= 10) {
+        output.push(input[i]);
+      } else if (desiredBooziness === 'medium' && input[i] >= 6 && input[i] < 10) {
+        output.push(input[i]);
+      } else if (desiredBooziness === 'low' && input[i] < 6) {
+        output.push(input[i]);
+      }
     }
+    if(output.length === 0) {
+      output = input;
+    }
+    return output;
   }
 }
