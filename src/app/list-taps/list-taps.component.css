@@ -10,3 +10,7 @@ button {
   height: 20px;
   width: 250px;
 }
+
+.card {
+  margin: 7px;
+}
