@@ -1,3 +1,8 @@
-<p>
-  new-tap works!
-</p>
+<div>
+  <h5>Add New Tap</h5>
+  <input class="form-control" #newName placeholder="Name">
+  <input class="form-control" #newBrand placeholder="Brand">
+  <input type="number" class="form-control" #newPrice placeholder="Price per Pint">
+  <input type="number" class="form-control" #newAlc placeholder="Alcohol Content">
+  <button class="btn btn-primary" (click)="addNewTap(newName.value, newBrand.value, newPrice.value, newAlc.value); newName.value=''; newBrand.value=''; newPrice.value=''; newAlc.value='' ">Add New Tap</button>
+</div>

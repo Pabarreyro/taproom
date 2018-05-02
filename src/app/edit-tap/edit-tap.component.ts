@@ -10,13 +10,21 @@ export class EditTapComponent {
   @Input() childSelectedTap: Tap;
   @Output() sendPints = new EventEmitter();
   checked: boolean = false;
+  beerDispensed = 0;
 
-  emitPints(pints: number) {
-    this.sendPints.emit(pints);
+  emitPints() {
+    this.sendPints.emit(this.beerDispensed);
+    this.beerDispensed = 0;
+
   }
 
   clickedCheck() {
-    this.checked = true;
+    if (this.beerDispensed !== 0) {
+      this.emitPints();
+      this.checked = false
+    } else {
+      this.checked = true;
+    }
   }
 
 }

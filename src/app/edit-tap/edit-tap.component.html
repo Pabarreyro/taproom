@@ -1,11 +1,23 @@
 <div *ngIf="childSelectedTap">
-  <h5>Dispense</h5>
-    <input id="pints" name="pints" [(ngModel)]="beerDispensed" type="number" #pints="ngModel" required>
-    <div *ngIf="checked === true && pints.invalid"
+  <h5>Dispense {{childSelectedTap.name}}</h5>
+    <input class="form-control"  placeholder="Enter quantity" [(ngModel)]="beerDispensed" type="number" name="beerDispensed" required>
+    <div *ngIf="checked === true && beerDispensed === 0"
      class="alert alert-danger">
-      <div *ngIf="pints.errors.required">
         Please enter a quantity.
-      </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="emitPints(beerDispensed); clickedCheck()">Dispense</button>
+    <button class="btn btn-primary" (click)="clickedCheck();">Dispense</button>
+    <button class="btn btn-success" (click)="emitPints(childSelectedTap.level - 124); clickedCheck()">Refill</button>
+  <hr>
+  <h5>Edit {{childSelectedTap.name}}</h5>
+  <div class="edit-tap-info">
+    <label>Name</label>
+    <input class="form-control" [(ngModel)]="childSelectedTap.name">
+    <label>Brand</label>
+    <input class="form-control" [(ngModel)]="childSelectedTap.brand">
+    <label>Price per Pint</label>
+    <input type="number" class="form-control" [(ngModel)]="childSelectedTap.pricePerPint">
+    <label>Alcohol Content</label>
+    <input type="number" class="form-control" [(ngModel)]="childSelectedTap.alcoholContent">
+    <button class="btn btn-primary" (click)="childSelectedTap=null;">Update</button>
+  </div>
 </div>
