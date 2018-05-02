@@ -6,7 +6,7 @@
         Please enter a quantity.
     </div>
     <button class="btn btn-primary" (click)="clickedCheck();">Dispense</button>
-    <button class="btn btn-success" (click)="emitPints(childSelectedTap.level - 124); clickedCheck()">Refill</button>
+    <button class="btn btn-success" (click)="refillPints(); clickedCheck()">Refill</button>
   <hr>
   <h5>Edit {{childSelectedTap.name}}</h5>
   <div class="edit-tap-info">

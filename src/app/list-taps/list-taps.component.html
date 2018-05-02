@@ -8,14 +8,14 @@
 <div class= "card" *ngFor="let tap of childTapList | booziness:filterBooziness">
   <div class="card-body">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-sm-4">
         <img [src]="tap.imgString" alt="Card image cap">
       </div>
-      <div class="col-md-10">
-        <h5 class="card-title">{{tap.name}}</h5>
+      <div class="col-sm-8">
+        <h5 class="card-title">{{tap.name}} ......................... <span [style.color]="priceColor(tap)">${{tap.pricePerPint}}</span></h5>
         <p>{{tap.alcoholContent}}%</p>
         <p class="card-text">{{tap.brand}}</p>
-        <p class="card-text" [style.color]="priceColor(tap)">$<span></span>{{tap.pricePerPint}}</p>
+
         <div class="progress level-bar">
           <div class="progress-bar" role="progressbar"
           [style.width] = "tap.percent" [attr.aria-valuenow]="tap.level" aria-valuemin="0" aria-valuemax="124">

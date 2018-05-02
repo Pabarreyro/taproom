@@ -18,6 +18,12 @@ export class EditTapComponent {
 
   }
 
+  refillPints() {
+    this.sendPints.emit(this.childSelectedTap.level - 124);
+    this.beerDispensed = 0;
+
+  }
+
   clickedCheck() {
     if (this.beerDispensed !== 0) {
       this.emitPints();

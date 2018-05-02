@@ -1,9 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
+<div class="container">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <app-list-taps [childTapList]="masterTaps" (clickSender)="editTap($event)"></app-list-taps>
-  <app-edit-tap [childSelectedTap]="masterSelectedTap" (sendPints)="updateLevel($event)"></app-edit-tap>
-  <app-new-tap (newTap)="addTaptoTaps($event)"></app-new-tap>
+  <div class="row">
+    <div class="col">
+      <app-list-taps [childTapList]="masterTaps" (clickSender)="editTap($event)"></app-list-taps>
+    </div>
+    <div class="col">
+      <app-edit-tap [childSelectedTap]="masterSelectedTap" (sendPints)="updateLevel($event)"></app-edit-tap>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-new-tap (newTap)="addTaptoTaps($event)"></app-new-tap>
+    </div>
+  </div>
 </div>
