@@ -1,5 +1,20 @@
-<ul>
-  <li *ngFor="let tap of taps">
-    {{tap.name}}
-  </li>
-</ul>
+<div class= "card" *ngFor="let tap of childTapList">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <img [src]="tap.imgString" alt="Card image cap">
+      </div>
+      <div class="col-md-10">
+        <h5 class="card-title">{{tap.name}}</h5>
+        <p class="card-text">{{tap.brand}} <span>{{tap.alcoholContent}}</span></p>
+        <p class="card-text" [style.color]="priceColor(tap)">$<span></span>{{tap.pricePerPint}}</p>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar"
+          [style.width] = "tap.percent" [attr.aria-valuenow]="tap.level" aria-valuemin="0" aria-valuemax="124">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="editButtonClicked(tap)">Edit Tap</button>
+  </div>
+</div>

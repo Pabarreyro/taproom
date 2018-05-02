@@ -3,7 +3,7 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <app-list-taps></app-list-taps>
-  <app-edit-tap></app-edit-tap>
+  <app-list-taps [childTapList]="masterTaps" (clickSender)="editTap($event)"></app-list-taps>
+  <app-edit-tap [childSelectedTap]="masterSelectedTap" (sendPints)="updateLevel($event)"></app-edit-tap>
   <app-new-tap></app-new-tap>
 </div>
