@@ -9,6 +9,7 @@ import { Tap } from './../models/tap.model';
 export class ListTapsComponent{
   @Input() childTapList: Tap[];
   @Output() clickSender = new EventEmitter();
+  filterBooziness: string = "all";
 
   priceColor(tap: Tap) {
     if (tap.pricePerPint <= 4) {
@@ -18,6 +19,10 @@ export class ListTapsComponent{
     } else {
       return "red";
     }
+  }
+
+  onChange(filterOption) {
+    this.filterBooziness = filterOption;
   }
 
   editButtonClicked(tap: Tap) {

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BoozinessPipe } from './booziness.pipe';
 
 
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { NewTapComponent } from './new-tap/new-tap.component';
     AppComponent,
     ListTapsComponent,
     EditTapComponent,
-    NewTapComponent
+    NewTapComponent,
+    BoozinessPipe
   ],
   imports: [
     BrowserModule,
