@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Tap } from './models/task.model';
+import { Tap } from './models/tap.model';
 
 @Pipe({
   name: "booziness",
