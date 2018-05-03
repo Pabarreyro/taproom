@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Tap } from './../models/tap.model';
 
 @Component({
@@ -8,8 +9,10 @@ import { Tap } from './../models/tap.model';
 })
 export class ListTapsComponent{
   @Input() childTapList: Tap[];
-  @Output() clickSender = new EventEmitter();
+  @Output() pintSender = new EventEmitter();
+  @Output() tapSender = new EventEmitter();
   filterBooziness: string = "all";
+  openModal: false;
 
   priceColor(tap: Tap) {
     if (tap.pricePerPint <= 4) {
@@ -25,7 +28,11 @@ export class ListTapsComponent{
     this.filterBooziness = filterOption;
   }
 
-  editButtonClicked(tap: Tap) {
-    this.clickSender.emit(tap);
+  passPints(pints: number) {
+    this.pintSender.emit(pints);
+  }
+
+  passTap(tap: Tap) {
+    this.tapSender.emit(tap);
   }
 }

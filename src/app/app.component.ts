@@ -17,6 +17,7 @@ export class AppComponent {
 
   editTap(clickedTap){
     this.masterSelectedTap = clickedTap;
+    console.log("edit tap" + this.masterSelectedTap);
   }
 
   addTaptoTaps(newTap) {
@@ -24,6 +25,7 @@ export class AppComponent {
   }
 
   updateLevel(decrement) {
+    console.log("update pints" + this.masterSelectedTap);
     this.masterSelectedTap.level -= parseInt(decrement);
     this.masterSelectedTap.percent = (Math.floor(this.masterSelectedTap.level /124 * 100)).toString() + "%";
     this.masterSelectedTap = null;

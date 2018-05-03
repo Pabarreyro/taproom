@@ -24,6 +24,8 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-primary" (click)="editButtonClicked(tap)">Manage Tap</button>
+    <app-edit-tap [childSelectedTap]="tap" (sendPints)="passPints($event)"
+    (sendTaps)="passTap($event)"></app-edit-tap>
+    <!-- <button class="btn btn-primary" (click)="editButtonClicked(tap);">Manage Tap</button> -->
   </div>
 </div>

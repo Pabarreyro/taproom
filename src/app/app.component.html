@@ -5,10 +5,7 @@
   </h1>
   <div class="row">
     <div class="col">
-      <app-list-taps [childTapList]="masterTaps" (clickSender)="editTap($event)"></app-list-taps>
-    </div>
-    <div class="col">
-      <app-edit-tap [childSelectedTap]="masterSelectedTap" (sendPints)="updateLevel($event)"></app-edit-tap>
+      <app-list-taps [childTapList]="masterTaps" (pintSender)="updateLevel($event)" (tapSender)="editTap($event)"></app-list-taps>
     </div>
   </div>
   <div class="row">

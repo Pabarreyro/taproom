@@ -10,6 +10,7 @@ import { Tap } from './../models/tap.model';
 export class EditTapComponent {
   @Input() childSelectedTap: Tap;
   @Output() sendPints = new EventEmitter();
+  @Output() sendTaps = new EventEmitter();
   checked: boolean = false;
   beerDispensed = 0;
   closeResult: string;
@@ -22,6 +23,7 @@ export class EditTapComponent {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+    this.sendTaps.emit(this.childSelectedTap);
   }
 
   private getDismissReason(reason: any): string {
@@ -36,11 +38,12 @@ export class EditTapComponent {
 
   emitPints() {
     this.sendPints.emit(this.beerDispensed);
+    this.sendTaps.emit(this.childSelectedTap);
     this.beerDispensed = 0;
-
   }
 
   refillPints() {
+    console.log(this.childSelectedTap);
     this.sendPints.emit(this.childSelectedTap.level - 124);
     this.beerDispensed = 0;
 
